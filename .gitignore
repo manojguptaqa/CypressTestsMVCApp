@@ -1,3 +1,6 @@
 node_modules
 cypress/videos
-Cypress/results
+cypress/results
+cypress/cucumber-json
+cypress/downloads
+reports
