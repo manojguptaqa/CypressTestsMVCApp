@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+     "triggerAllTests-headless": "./node_modules/.bin/cypress run",
+     "triggerAllTests-headless-chrome": "./node_modules/.bin/cypress run --browser chrome",
+     "triggerAllTests-headed-chrome": "./node_modules/.bin/cypress run --headed --browser chrome"
+
   },
   "author": "",
   "license": "ISC",
