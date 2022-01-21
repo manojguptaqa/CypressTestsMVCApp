@@ -4,10 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-     "triggerAllTests-headless": "./node_modules/.bin/cypress run && node generate-html-from-cucumber-json.js",
-     "triggerAllTests-headless-chrome": "./node_modules/.bin/cypress run --browser chrome && node generate-html-from-cucumber-json.js",
-     "triggerAllTests-headed-chrome": "./node_modules/.bin/cypress run --headed --browser chrome && node generate-html-from-cucumber-json.js"
-
+    "triggerAllTests-headless": "./node_modules/.bin/cypress run && node generate-html-from-cucumber-json.js",
+    "triggerAllTests-headless-chrome": "./node_modules/.bin/cypress run --browser chrome && node generate-html-from-cucumber-json.js",
+    "triggerAllTests-headed-chrome": "./node_modules/.bin/cypress run --headed --browser chrome && node generate-html-from-cucumber-json.js"
   },
   "author": "",
   "license": "ISC",
