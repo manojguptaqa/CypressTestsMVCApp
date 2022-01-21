@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-     "triggerAllTests-headless": "./node_modules/.bin/cypress run",
-     "triggerAllTests-headless-chrome": "./node_modules/.bin/cypress run --browser chrome",
-     "triggerAllTests-headed-chrome": "./node_modules/.bin/cypress run --headed --browser chrome"
+     "triggerAllTests-headless": "./node_modules/.bin/cypress run && node generate-html-from-cucumber-json.js",
+     "triggerAllTests-headless-chrome": "./node_modules/.bin/cypress run --browser chrome && node generate-html-from-cucumber-json.js",
+     "triggerAllTests-headed-chrome": "./node_modules/.bin/cypress run --headed --browser chrome && node generate-html-from-cucumber-json.js"
 
   },
   "author": "",
@@ -27,7 +27,7 @@
     "nonGlobalStepDefinitions": true,
     "cucumberJson": {
       "generate": true,
-      "outputFolder": "cypress/cucumber-json",
+      "outputFolder": "reports/cucumber-json",
       "filePrefix": "",
       "fileSuffix": ".cucumber"
     }
