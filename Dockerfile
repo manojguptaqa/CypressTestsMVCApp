@@ -12,6 +12,4 @@ COPY ./cypress ./cypress
 COPY ./cypress.json ./cypress.json
 COPY ./package.json .
 COPY ./generate-html-from-cucumber-json.js .
-
-# Run tests
-CMD ["./node_modules/.bin/cypress", "run" ]
+ENTRYPOINT [""]

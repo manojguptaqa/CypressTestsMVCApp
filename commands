@@ -1,3 +1,17 @@
+-------
+Run tests inside docker
+
+cmd="npm run triggerAllTests-headed-chrome" docker-compose up
+cmd="npm run triggerAllTests-headless" docker-compose up
+cmd="npm run triggerAllTests-headless-chrome" docker-compose up
+--------
+Build and push Image:
+
+docker image build -t manojguptaqa/mvc-cypress-test:latest .
+
+docker push manojguptaqa/mvc-cypress-test
+
+----------------------
 docker pull cypress/included:9.3.1
 
 docker run -it --entrypoint=cypress cypress/included:9.3.1 info
@@ -6,6 +20,3 @@ docker run  -it -v $PWD:/e2e -w /e2e cypress/included:9.3.1 --spec cypress/integ
 
 docker run  -it -v $PWD:/e2e -w /e2e --entrypoint=cypress cypress/included:9.3.1 run
 
-docker image build -t manojguptaqa/mvc-cypress-test:latest .
-
-docker push manojguptaqa/mvc-cypress-test
