@@ -1,17 +1,17 @@
-#Base image taken from:https://github.com/cypress-io/cypress-docker-images
-FROM cypress/browsers:node14.17.0-chrome91-ff89
-#Create the folder where our project will be stored
-RUN mkdir /mvcTestsinDocker
-#We make it our workdirectory
-WORKDIR /mvcTestsinDocker
-#Let's copy the essential files that we MUST use to run our scripts.
-COPY ./package.json .
-COPY ./cypress.json .
+FROM cypress/included:9.3.1
+# Copy NPM & Install
+COPY ./package.json /tmp/package.json
+# CI=true is used to suppress an exorbitant amount of verbose console outputs during the cypress installation
+RUN cd /tmp && CI=true npm install
+RUN CI=true /tmp/node_modules/.bin/cypress install
+RUN mkdir -p /e2e && cp -a /tmp/node_modules /e2e/
+
+WORKDIR /e2e
+# Copy files for config
 COPY ./cypress ./cypress
+COPY ./cypress.json ./cypress.json
+COPY ./package.json .
 COPY ./generate-html-from-cucumber-json.js .
-#Install the cypress dependencies in the work directory
-RUN npm install
-#Executable commands the container will use[Exec Form]
-ENTRYPOINT ["npx","./node_modules/.bin/cypress","run"]
-#With CMD in this case, we can specify more parameters to the last entrypoint.
-CMD [""]
+
+# Run tests
+CMD ["./node_modules/.bin/cypress", "run" ]

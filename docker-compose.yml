@@ -1,0 +1,14 @@
+version: '3.2'
+services:
+  cypress:
+    image: manojguptaqa/mvc-cypress-test
+    command: >
+      ./node_modules/.bin/cypress run
+    environment:
+      - TAG=latest
+      - CYPRESS_browser=chrome
+      - CYPRESS_screenshotsFolder=/results/${TAG}/screenshots
+      - CYPRESS_videosFolder=/results/${TAG}/videos
+    volumes:
+      - ./reports:/results
+      - ./reports:/e2e/reports
