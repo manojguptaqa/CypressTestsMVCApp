@@ -11,6 +11,8 @@ docker image build -t manojguptaqa/mvc-cypress-test:latest .
 
 docker push manojguptaqa/mvc-cypress-test
 
+cmd="npm run triggerAllTests-headed-chrome" docker-compose up
+
 ----------------------
 docker pull cypress/included:9.3.1
 
